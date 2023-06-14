@@ -1,0 +1,43 @@
+#server:
+#  port: 8010
+#logging:
+#  level:
+#    com:
+#      jap:
+#        microservice:
+#          accountservice: debug
+#spring:
+#  application:
+#    name: accountservice
+#  redis:
+#    host: localhost
+#    port: 6379
+#    timeout: 10s
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/account
+#    username: postgres
+#    password: 12345
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    generate-ddl: true
+#    hibernate.ddl-auto: update
+#    show-sql: true
+#    hibernate:
+#    ddl-auto: true
+#    properties:
+#      hibernate:
+#        default_schema: public
+#        format_sql: true
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: accountservice
+  config:
+    url: http://localhost:8888
+    import: configserver:http://localhost:8888

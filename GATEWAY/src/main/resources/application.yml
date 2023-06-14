@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      routes:
+        - id: ACCOUNTSERVICE
+          uri:
+            lb://ACCOUNTSERVICE
+          predicates:
+            - Path=/accountservice/**
+        - id: OTPSERVICE
+          uri:
+            lb://OTPSERVICE
+          predicates:
+            - Path=/otpservice/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+

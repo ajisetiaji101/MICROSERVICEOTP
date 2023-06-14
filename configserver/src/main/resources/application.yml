@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: file:///C:/Users/AJI SETIAJI/Documents/microservice/configuration
+      label: master
+server:
+  port: 8888
